@@ -26,4 +26,7 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)ButtonClick:(id)sender {
+    NSLog(self.NameTextBox.text);
+}
 @end

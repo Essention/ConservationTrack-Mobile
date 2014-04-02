@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewController : UIViewController
+- (IBAction)ButtonClick:(id)sender;
+@property (strong, nonatomic) IBOutlet UITextField *NameTextBox;
 
 @end
