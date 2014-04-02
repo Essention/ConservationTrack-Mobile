@@ -8,8 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <NSXMLParserDelegate>{
+    
+    NSMutableData *webData;
+    NSXMLParser *xmlParser;
+    NSString *finaldata;
+    NSString *convertToStringData;
+    NSMutableString *nodeContent;
+    
+}
+@property (strong, nonatomic) IBOutlet UILabel *output;
 - (IBAction)ButtonClick:(id)sender;
+- (IBAction)invokeService;
+- (IBAction)connection;
 @property (strong, nonatomic) IBOutlet UITextField *NameTextBox;
 
 @end

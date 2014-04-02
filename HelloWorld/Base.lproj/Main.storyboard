@@ -39,6 +39,7 @@
                     </view>
                     <connections>
                         <outlet property="NameTextBox" destination="fk7-XG-ZoE" id="Z5A-dM-kbf"/>
+                        <outlet property="output" destination="c8w-P6-Psb" id="QKL-gf-wxG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
