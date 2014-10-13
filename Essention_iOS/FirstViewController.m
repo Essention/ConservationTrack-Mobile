@@ -32,7 +32,7 @@
         NSError *error;
         
         // Create file manager
-     //   NSFileManager *fileMgr = [NSFileManager defaultManager];
+     
         
         // Point to Document directory
         NSString *documentsDirectory = [NSHomeDirectory()
@@ -69,8 +69,7 @@
 {
 
     // Show contents of Documents directory
- //   NSLog(@"Documents directory: %@",
-   //       [fileMgr contentsOfDirectoryAtPath:documentsDirectory error:&error]);
+    
     
     
     // The main act...

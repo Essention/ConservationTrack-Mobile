@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SecondViewController : UIViewController<UIImagePickerControllerDelegate,UINavigationControllerDelegate,NSXMLParserDelegate>
+@interface SecondViewController : UIViewController<UIImagePickerControllerDelegate,UINavigationControllerDelegate,NSXMLParserDelegate,UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 {
     UIImagePickerController *picker2;
     UIImage *image_;

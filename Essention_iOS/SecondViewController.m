@@ -13,34 +13,43 @@
 - (IBAction)SelectPhoto:(id)sender;
 - (IBAction)MAkePhoto:(id)sender;
 - (IBAction)SendPhoto:(id)sender;
+- (IBAction)getAllImages:(id)sender;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrolView;
+
+
 
 @end
 
-@implementation SecondViewController
+@implementation SecondViewController{
+    NSMutableArray *array;
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
-
 - (void)viewDidUnload {
     [super viewDidUnload];
 }
-
-
 - (void)dealloc {
     //[output release];
     //[convertToStringData release];
     //[super dealloc];
 }
-
-
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    /// coll view
+    NSError *error;
+    NSFileManager *fileMgr = [NSFileManager defaultManager];
+    NSString *documentsDirectory = [NSHomeDirectory()
+                                    stringByAppendingPathComponent:@"Documents"];
+    NSLog(@"Documents directory: %@", [fileMgr contentsOfDirectoryAtPath:documentsDirectory error:&error]);
+    array=[[NSMutableArray alloc] init];
+    array=[fileMgr contentsOfDirectoryAtPath:documentsDirectory error:&error];
+    
+    
     // Do any additional setup after loading the view, typically from a nib.
 }
-
-
 
 ///////// photo
 - (IBAction)SelectPhoto:(id)sender {
@@ -49,18 +58,36 @@
     
     picker2=[[UIImagePickerController alloc] init];
     picker2.delegate =self;
+    
+    NSString *tt=[NSHomeDirectory()   stringByAppendingPathComponent:@"Documents"];
     [picker2 setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+    //[picker2 setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
     [self presentViewController:picker2 animated:YES completion:NULL];
   //  [picker2 release];
     NSLog(@"TChooseExisting end %@",picker2.nibName);
 }
 
 - (IBAction)MAkePhoto:(id)sender {
-    picker2=[[UIImagePickerController alloc] init];
+    if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        
+        UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                              message:@"Device has no camera"
+                                                             delegate:nil
+                                                    cancelButtonTitle:@"OK"
+                                                    otherButtonTitles: nil];
+        
+        [myAlertView show];
+        
+    }
+    else{
+        picker2=[[UIImagePickerController alloc] init];
     picker2.delegate =self;
     [picker2 setSourceType:UIImagePickerControllerSourceTypeCamera];
     [self presentViewController:picker2 animated:YES completion:NULL];
-   // [picker2 release];
+
+    }
+    
+       // [picker2 release];
 }
 
 
@@ -78,6 +105,23 @@
     NSString *file_name = [image_ accessibilityIdentifier] ;
     
     NSLog(@"imagePickerController end-----. %@",file_name);
+    
+    
+    
+    ///////
+   //NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,     NSUserDomainMask, YES);
+   // NSString *documentsDirectory = [paths objectAtIndex:0];
+    //NSString *savedImagePath = [documentsDirectory stringByAppendingPathComponent:@"savedImage.png"];
+    
+    NSString *documentsDirectory = [NSHomeDirectory()
+                                    stringByAppendingPathComponent:@"Documents"];
+    NSString *savedImagePath = [documentsDirectory
+                          stringByAppendingPathComponent:@"sav234234wrqwge.png"];
+    
+    UIImage *image = imageview_.image; // imageView is my image from camera
+    NSData *imageData = UIImagePNGRepresentation(image);
+    [imageData writeToFile:savedImagePath atomically:YES];
+    
 }
 -(void) imagePickerControllerDidCancel:(UIImagePickerController *)picker{
     NSLog(@"imagePickerControllerDidCancel");
@@ -85,7 +129,14 @@
     NSLog(@"imagePickerControllerDidCancel end.");
 }
 // soap  ...  requests to SP server
--(IBAction) SendPhoto:(id)sender{
+-(IBAction) SendPhoto:(id)sender
+    {
+        [self Soap_Send_photo];
+    }
+
+
+
+-(void) Soap_Send_photo{
     //NSMutableData *webData;
     
     NSData *dataImage = [[NSData alloc] init];
@@ -108,12 +159,8 @@
                                    "</soap:Body>\n"
                                    "</soap:Envelope>\n"];
     
-    
-    
     [soapFormat replaceCharactersInRange:[ soapFormat rangeOfString: @"----"] withString:stringImage];
     [soapFormat replaceCharactersInRange:[ soapFormat rangeOfString: @"++++"] withString:[image_ accessibilityIdentifier]];
-    
-    
     
     NSLog(@"The request format is %@",soapFormat);
     
@@ -124,7 +171,6 @@
     NSMutableURLRequest *theRequest = [[NSMutableURLRequest alloc]initWithURL:locationOfWebService];
     
     NSString *msgLength = [NSString stringWithFormat:@"%d",[soapFormat length]];
-    
     
     [theRequest addValue:@"text/xml" forHTTPHeaderField:@"Content-Type"];
     [theRequest addValue:@"http://schemas.microsoft.com/sharepoint/soap/CopyIntoItems" forHTTPHeaderField:@"SOAPAction"];
@@ -142,8 +188,6 @@
     else {
         NSLog(@"No Connection established");
     }
-    
-
 }
 //NSURLConnection delegate method
 
@@ -189,6 +233,24 @@
     //[connection release];
 }
 
+//
+#pragma mark - UICollectionView Datasource
+- (IBAction)getAllImages:(id)sender {
+   
+}
 
+-(NSInteger) numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
+    return 1;
+}
+-(NSInteger) collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    return [array count];
+}
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    UICollectionViewCell *cell=[collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath ];
+    UILabel *label=(UILabel *)[cell viewWithTag:100];
+    label.text=[array objectAtIndex:indexPath.row];
+    return cell;
+    
+}
 
 @end
