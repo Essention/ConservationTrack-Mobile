@@ -8,6 +8,7 @@
 
 #import "FirstViewController.h"
 #import <CoreLocation/CoreLocation.h>
+#import "start.h"
 
 @interface FirstViewController()<CLLocationManagerDelegate>
 //@property (weak, nonatomic) IBOutlet UILabel *longitude;
@@ -135,6 +136,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    //chaek all our folders
+    EsStart *firstStart=[[EsStart alloc] init];
+    [firstStart checkFolder];
+    
     manager =[[CLLocationManager alloc] init];
     geocoder =[[CLGeocoder alloc] init];
     
@@ -156,4 +161,7 @@
     AddToLog(@"--New--",true);
     [scrollText setText:GetLog()];
 }
+
+
+
 @end

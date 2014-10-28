@@ -21,7 +21,6 @@
 @end
 
 @implementation SecondViewController{
-    NSMutableArray *array;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -37,15 +36,6 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    /// coll view
-    NSError *error;
-    NSFileManager *fileMgr = [NSFileManager defaultManager];
-    NSString *documentsDirectory = [NSHomeDirectory()
-                                    stringByAppendingPathComponent:@"Documents"];
-    NSLog(@"Documents directory: %@", [fileMgr contentsOfDirectoryAtPath:documentsDirectory error:&error]);
-    array=[[NSMutableArray alloc] init];
-    array=[fileMgr contentsOfDirectoryAtPath:documentsDirectory error:&error];
     
     
     // Do any additional setup after loading the view, typically from a nib.
@@ -233,24 +223,6 @@
     //[connection release];
 }
 
-//
-#pragma mark - UICollectionView Datasource
-- (IBAction)getAllImages:(id)sender {
-   
-}
 
--(NSInteger) numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
-    return 1;
-}
--(NSInteger) collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return [array count];
-}
--(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    UICollectionViewCell *cell=[collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath ];
-    UILabel *label=(UILabel *)[cell viewWithTag:100];
-    label.text=[array objectAtIndex:indexPath.row];
-    return cell;
-    
-}
 
 @end
