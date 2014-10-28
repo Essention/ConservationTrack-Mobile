@@ -18,6 +18,9 @@
 		6CD850A419E5BD060081CBD9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6CD850A219E5BD060081CBD9 /* LaunchScreen.xib */; };
 		6CD850B019E5BD060081CBD9 /* Essention_iOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CD850AF19E5BD060081CBD9 /* Essention_iOSTests.m */; };
 		6CD850BA19E6D0CE0081CBD9 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CD850B919E6D0CE0081CBD9 /* CoreLocation.framework */; };
+		6CDD263019ED655C00CB0F89 /* thirdController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CDD262F19ED655C00CB0F89 /* thirdController.m */; };
+		6CDD263819EE725400CB0F89 /* start.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CDD263719EE725400CB0F89 /* start.m */; };
+		6CFB499819FFC6C200EE1EDD /* LoginEs.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CFB499719FFC6C200EE1EDD /* LoginEs.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,12 @@
 		6CD850AE19E5BD060081CBD9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6CD850AF19E5BD060081CBD9 /* Essention_iOSTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Essention_iOSTests.m; sourceTree = "<group>"; };
 		6CD850B919E6D0CE0081CBD9 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		6CDD262C19ED64C500CB0F89 /* thirdController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = thirdController.h; sourceTree = "<group>"; };
+		6CDD262F19ED655C00CB0F89 /* thirdController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = thirdController.m; sourceTree = "<group>"; };
+		6CDD263619EE725400CB0F89 /* start.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = start.h; sourceTree = "<group>"; };
+		6CDD263719EE725400CB0F89 /* start.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = start.m; sourceTree = "<group>"; };
+		6CFB499619FFC6C200EE1EDD /* LoginEs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginEs.h; sourceTree = "<group>"; };
+		6CFB499719FFC6C200EE1EDD /* LoginEs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginEs.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +120,7 @@
 		6CD8508F19E5BD060081CBD9 /* Essention_iOS */ = {
 			isa = PBXGroup;
 			children = (
+				6CFB499319FFC5CC00EE1EDD /* Login Controllers */,
 				6CD8509419E5BD060081CBD9 /* AppDelegate.h */,
 				6CD8509519E5BD060081CBD9 /* AppDelegate.m */,
 				6CD8509719E5BD060081CBD9 /* FirstViewController.h */,
@@ -122,6 +132,10 @@
 				6CD850A219E5BD060081CBD9 /* LaunchScreen.xib */,
 				6C14E87019E80CE1004C0C0F /* Documents */,
 				6CD8509019E5BD060081CBD9 /* Supporting Files */,
+				6CDD262C19ED64C500CB0F89 /* thirdController.h */,
+				6CDD262F19ED655C00CB0F89 /* thirdController.m */,
+				6CDD263619EE725400CB0F89 /* start.h */,
+				6CDD263719EE725400CB0F89 /* start.m */,
 			);
 			path = Essention_iOS;
 			sourceTree = "<group>";
@@ -150,6 +164,15 @@
 				6CD850AE19E5BD060081CBD9 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6CFB499319FFC5CC00EE1EDD /* Login Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				6CFB499619FFC6C200EE1EDD /* LoginEs.h */,
+				6CFB499719FFC6C200EE1EDD /* LoginEs.m */,
+			);
+			name = "Login Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,8 +280,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6CDD263819EE725400CB0F89 /* start.m in Sources */,
 				6CD8509C19E5BD060081CBD9 /* SecondViewController.m in Sources */,
 				6CD8509619E5BD060081CBD9 /* AppDelegate.m in Sources */,
+				6CFB499819FFC6C200EE1EDD /* LoginEs.m in Sources */,
+				6CDD263019ED655C00CB0F89 /* thirdController.m in Sources */,
 				6CD8509919E5BD060081CBD9 /* FirstViewController.m in Sources */,
 				6CD8509319E5BD060081CBD9 /* main.m in Sources */,
 			);
