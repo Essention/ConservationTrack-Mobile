@@ -95,7 +95,17 @@
     // dequeueReusableCellWithReuseIdentifier:@"folderRow" forIndexPath:indexPath ];
     UILabel *label=(UILabel *)[cell viewWithTag:21];
     theList = [array objectAtIndex:indexPath.row];
-    label.text=theList.title;
+    label.text=[NSString stringWithFormat:@"%@. id:%i",theList.title,theList.itemID];
     return cell;
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([[segue identifier] isEqualToString:@"ShowDetails"]) {
+        InfoPath *infp=[segue destinationViewController];
+        NSIndexPath *indexPath =[self.tableViewMy indexPathForSelectedRow];
+        int row =[indexPath row];
+        theList = [array objectAtIndex:indexPath.row];
+        infp.spId=theList.itemID;
+    }
 }
 @end

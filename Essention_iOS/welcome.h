@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "SP.h"
 #import "List.h"
+#import "InfoPath.h"
 
 @interface welcome : UIViewController <UIImagePickerControllerDelegate,
 UINavigationControllerDelegate,
@@ -30,8 +31,8 @@ UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadGif;
 
 @property(nonatomic,retain) List *theList;
-- (IBAction)backToLogin:(id)sender;
--(void) teblViewReload;
-- (void)reload;
+-(IBAction)backToLogin:(id)sender;
+//-(void) teblViewReload;
+-(void)reload;
 
 @end

@@ -39,7 +39,9 @@
     else if ([elementName isEqualToString:@"z:row"]){
         theList= [[List alloc] init];
         theList.title=[attributeDict valueForKey:@"ows_Title"];
+        theList.itemID=[[attributeDict valueForKey:@"ows_ID"] intValue];
     }
+
 }
 -(void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string{
     if (!correntElementValue) {
