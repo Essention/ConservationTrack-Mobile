@@ -20,6 +20,10 @@
 		6CD850BA19E6D0CE0081CBD9 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CD850B919E6D0CE0081CBD9 /* CoreLocation.framework */; };
 		6CDD263019ED655C00CB0F89 /* thirdController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CDD262F19ED655C00CB0F89 /* thirdController.m */; };
 		6CDD263819EE725400CB0F89 /* start.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CDD263719EE725400CB0F89 /* start.m */; };
+		6CE6B6861A00F66700F642C8 /* welcome.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CE6B6851A00F66700F642C8 /* welcome.m */; };
+		6CE6B6891A014EC000F642C8 /* SP.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CE6B6871A0146C400F642C8 /* SP.m */; };
+		6CE6B68D1A02284000F642C8 /* Parse.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CE6B68C1A02284000F642C8 /* Parse.m */; };
+		6CE6B6901A025DF700F642C8 /* List.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CE6B68F1A025DF700F642C8 /* List.m */; };
 		6CFB499819FFC6C200EE1EDD /* LoginEs.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CFB499719FFC6C200EE1EDD /* LoginEs.m */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +60,14 @@
 		6CDD262F19ED655C00CB0F89 /* thirdController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = thirdController.m; sourceTree = "<group>"; };
 		6CDD263619EE725400CB0F89 /* start.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = start.h; sourceTree = "<group>"; };
 		6CDD263719EE725400CB0F89 /* start.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = start.m; sourceTree = "<group>"; };
+		6CE6B6841A00F66700F642C8 /* welcome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = welcome.h; sourceTree = "<group>"; };
+		6CE6B6851A00F66700F642C8 /* welcome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = welcome.m; sourceTree = "<group>"; };
+		6CE6B6871A0146C400F642C8 /* SP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SP.m; sourceTree = "<group>"; };
+		6CE6B6881A014B8D00F642C8 /* SP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SP.h; sourceTree = "<group>"; };
+		6CE6B68B1A02284000F642C8 /* Parse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Parse.h; sourceTree = "<group>"; };
+		6CE6B68C1A02284000F642C8 /* Parse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Parse.m; sourceTree = "<group>"; };
+		6CE6B68E1A025DF700F642C8 /* List.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = List.h; sourceTree = "<group>"; };
+		6CE6B68F1A025DF700F642C8 /* List.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = List.m; sourceTree = "<group>"; };
 		6CFB499619FFC6C200EE1EDD /* LoginEs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginEs.h; sourceTree = "<group>"; };
 		6CFB499719FFC6C200EE1EDD /* LoginEs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginEs.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -120,6 +132,8 @@
 		6CD8508F19E5BD060081CBD9 /* Essention_iOS */ = {
 			isa = PBXGroup;
 			children = (
+				6CE6B68A1A02280500F642C8 /* Common */,
+				6CE6B6801A00F60100F642C8 /* Welcome Controllers */,
 				6CFB499319FFC5CC00EE1EDD /* Login Controllers */,
 				6CD8509419E5BD060081CBD9 /* AppDelegate.h */,
 				6CD8509519E5BD060081CBD9 /* AppDelegate.m */,
@@ -164,6 +178,28 @@
 				6CD850AE19E5BD060081CBD9 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6CE6B6801A00F60100F642C8 /* Welcome Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				6CE6B6841A00F66700F642C8 /* welcome.h */,
+				6CE6B6851A00F66700F642C8 /* welcome.m */,
+			);
+			name = "Welcome Controllers";
+			sourceTree = "<group>";
+		};
+		6CE6B68A1A02280500F642C8 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				6CE6B6881A014B8D00F642C8 /* SP.h */,
+				6CE6B6871A0146C400F642C8 /* SP.m */,
+				6CE6B68B1A02284000F642C8 /* Parse.h */,
+				6CE6B68C1A02284000F642C8 /* Parse.m */,
+				6CE6B68E1A025DF700F642C8 /* List.h */,
+				6CE6B68F1A025DF700F642C8 /* List.m */,
+			);
+			name = Common;
 			sourceTree = "<group>";
 		};
 		6CFB499319FFC5CC00EE1EDD /* Login Controllers */ = {
@@ -280,11 +316,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6CE6B6891A014EC000F642C8 /* SP.m in Sources */,
+				6CE6B6861A00F66700F642C8 /* welcome.m in Sources */,
 				6CDD263819EE725400CB0F89 /* start.m in Sources */,
 				6CD8509C19E5BD060081CBD9 /* SecondViewController.m in Sources */,
 				6CD8509619E5BD060081CBD9 /* AppDelegate.m in Sources */,
 				6CFB499819FFC6C200EE1EDD /* LoginEs.m in Sources */,
 				6CDD263019ED655C00CB0F89 /* thirdController.m in Sources */,
+				6CE6B68D1A02284000F642C8 /* Parse.m in Sources */,
+				6CE6B6901A025DF700F642C8 /* List.m in Sources */,
 				6CD8509919E5BD060081CBD9 /* FirstViewController.m in Sources */,
 				6CD8509319E5BD060081CBD9 /* main.m in Sources */,
 			);
