@@ -7,9 +7,9 @@
 //
 
 #import "LoginEs.h"
-#import "start.h"
-#import "AppDelegate.h"
-#import "SecondViewController.h"
+//#import "start.h"
+//#import "AppDelegate.h"
+//#import "SecondViewController.h"
 
 
 @implementation LoginEs
@@ -45,3 +45,5 @@
    // [self presentViewController:second animated:YES completion:NULL];
 }
 @end
+//5VC19-44Q32-H4JRN-5Y9XH-1UEH5
+//NSString *verify_status = [[NSUserDefaults standardUserDefaults]stringForKey:@"verify_status"];
