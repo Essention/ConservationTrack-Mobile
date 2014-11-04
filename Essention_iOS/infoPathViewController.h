@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "InfoPath.h"
 
-@interface infoPathViewController : UIViewController
+@interface infoPathViewController : UITableViewController{
+   
+}
+
 
 @property NSInteger *spId;
-@property (weak, nonatomic) IBOutlet UILabel *testLabel;
 
 @end

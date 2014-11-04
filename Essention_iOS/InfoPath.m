@@ -16,12 +16,38 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _tableviewPArts.layer.cornerRadius=5;
+    _tableviewPArts.layer.borderColor=[UIColor colorWithWhite:0.6 alpha:1].CGColor;
+    _tableviewPArts.layer.borderWidth=1;
+    _tableviewPArts.separatorColor=[UIColor clearColor];
+     //NSInteger *sid = _spId;
+     //NSString *username =[[NSUserDefaults standardUserDefaults]stringForKey:@"spid"];
+     _navbar.title=_spTitle;
+    [self GetDataFromIpathFormXml];
+
+}
+-(void)GetDataFromIpathFormXml{
     
-    NSInteger *sid = _spId;
+    array=[[NSMutableArray alloc] init];
+    sp=[[SP alloc]init];
+    [sp Get_AttaUrl :_spId];
+    timer= [NSTimer scheduledTimerWithTimeInterval: 2.0
+                                            target: self
+                                          selector:@selector(reload)
+                                          userInfo: nil repeats:YES];
+    array=[sp CheCkResult];
+}
+- (void)reload {
+    if ([sp FlagEnd]) {
+        array=[sp CheCkResult];
+     //   [self.tableViewMy reloadData];
+        [timer invalidate];
+     //   self.tableViewMy.hidden=false;
+     //   [self.loadGif stopAnimating];
+      //  self.loadGif.hidden=true;
+        [sp TryLoadFile];
+    }
     
-    infoPathViewController *infp=[infoPathViewController alloc];
-    infp.spId=_spId;
-  //  _testlabel.text=[NSString stringWithFormat:@"%ld",sid];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -31,18 +57,15 @@
 
 
  #pragma mark - Navigation
-- (void)motionBegan:(UIEventSubtype)motion withEvent:(UIEvent *)event{
-    
-}
  // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+// - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
  // Get the new view controller using [segue destinationViewController].
  // Pass the selected object to the new view controller.
-     infoPathViewController *infp=[segue destinationViewController];
-     infp.spId=_spId;
-
+//     infoPathViewController *infp=[segue destinationViewController];
+//     infp.spId=_spId;
+     //NSString *tt=segue.identifier;
      
- }
+// }
 
 
 

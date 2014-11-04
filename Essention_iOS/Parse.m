@@ -40,6 +40,7 @@
         theList= [[List alloc] init];
         theList.title=[attributeDict valueForKey:@"ows_Title"];
         theList.itemID=[[attributeDict valueForKey:@"ows_ID"] intValue];
+        theList.LinkFilename=[attributeDict valueForKey:@"ows_LinkFilename"];
     }
 
 }

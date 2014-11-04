@@ -7,9 +7,29 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <QuartzCore/QuartzCore.h>
 #import "infoPathViewController.h"
+#import "SP.h"
 
-@interface InfoPath : UITabBarController
+@interface InfoPath : UITableViewController
+{
+    NSMutableArray *result;
+    NSMutableArray *array;
+    SP *sp;
+    NSTimer *timer;
+    
+}
 @property NSInteger *spId;
+@property NSString *spTitle;
+@property (weak, nonatomic) IBOutlet UINavigationItem *navbar;
+@property (strong, nonatomic) IBOutlet UITableView *tableviewPArts;
+
+// infopath field
+
+@property (strong, nonatomic) IBOutlet UITextField *part1_name;
+@property (strong, nonatomic) IBOutlet UITextField *part1_monitdate;
+@property (strong, nonatomic) IBOutlet UIView *part1_nameofmonitor;
+@property (strong, nonatomic) IBOutlet UITextField *part1_status;
+
 
 @end

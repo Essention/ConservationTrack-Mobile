@@ -29,19 +29,14 @@
    // _bCreateNew.layer.borderColor=[[UIColor greenColor]CGColor];
     //_bCreateNew.layer.cornerRadius=10;
     _bCreateNew.clipsToBounds=YES;
-    //
+
     array=[[NSMutableArray alloc] init];
-    //array=[NSMutableArray arrayWithObjects: @"qwe",@"asdasd",nil];
     sp=[[SP alloc]init];
-    //username=
     [sp Get_GetList_Items];
-    
-  //  while (![sp FlagEnd]) {
-        timer= [NSTimer scheduledTimerWithTimeInterval: 2.0
+    timer= [NSTimer scheduledTimerWithTimeInterval: 2.0
                                                       target: self
                                                     selector:@selector(reload)
                                                     userInfo: nil repeats:YES];
-  //  }
     array=[sp CheCkResult];
     
 }
@@ -106,6 +101,11 @@
         int row =[indexPath row];
         theList = [array objectAtIndex:indexPath.row];
         infp.spId=theList.itemID;
+        infp.spTitle=theList.title;
+        
+        NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
+        [defaults setObject:[NSString stringWithFormat:@"%ld", theList.itemID] forKey:@"spid"];
+        [defaults synchronize];
     }
 }
 @end

@@ -16,9 +16,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    _testLabel.text=[NSString stringWithFormat:@"%ld",_spId];
+  //   NSString *spid =[[NSUserDefaults standardUserDefaults]stringForKey:@"spid"];
+   // _testLabel.text=[NSString stringWithFormat:@"%@",spid];
     
+   // [tabBarItem release];
+    //self.title = @"TWO";
+  // _novBar.topItem.title=spid;
+  //  self.navigationItem.title=@"w444444 ";
 }
 
 - (void)didReceiveMemoryWarning {

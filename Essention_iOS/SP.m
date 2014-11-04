@@ -26,27 +26,67 @@
 -(BOOL)FlagEnd{
     return flagEndConnection;
 }
--(void) Get_GetList_Items{
-    flagEndConnection=false;
-    resultList =[[NSMutableArray alloc] init];
-    nodeContent = [[NSMutableString alloc]init];
-    
+-(void)Get_AttaUrl:(NSInteger *)spidIt{
     NSMutableString *soapFormat = [NSMutableString stringWithFormat:@"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
                                    "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\"> \n"
                                    "<soap:Body>\n"
                                    "<GetListItems xmlns=\"http://schemas.microsoft.com/sharepoint/soap/\">\n"
-                                   "<listName>ios</listName>\n"
+                                   "<listName>Monitoring Reports</listName>\n"
+                                   "<viewFields><ViewFields>\n"
+                                   "<FieldRef Name=\"LinkFilename\"/><FieldRef Name=\"ID\"/><FieldRef Name='Title'/>\n"
+                                   "</ViewFields> </viewFields>\n"
+                                   "<query><Query><Where><Eq>\n"
+                                   "<FieldRef Name = \"ID\"/>\n"
+                                   "<Value Type = \"Counter\">%ld</Value>\n"
+                                   "</Eq></Where></Query></query>\n"
+                                   "</GetListItems>\n"
+                                   "</soap:Body>\n"
+                                   "</soap:Envelope>\n",spidIt];
+    NSString *url=[NSString stringWithFormat:@"%@",@"https://www.conservationtrack.org/co/home/_vti_bin/lists.asmx"];
+    NSString *soapUrl=[NSString stringWithFormat:@"%@",@"http://schemas.microsoft.com/sharepoint/soap/GetListItems"];
+    [self RequestSoap:soapFormat urlSP:url soapUrl:soapUrl];
+    
+}
+-(void) TryLoadFile{
+    NSString *authenticationURL = @"https://www.conservationtrack.org/co/home/monitoringreports/barniconservation_monitoringrpt_2014-09-12t11_26_36.xml";
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:authenticationURL]];
+
+    
+    [request setHTTPMethod: @"POST"];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"content-type"];
+   // [request setHTTPBody:[[NSString stringWithFormat:@"username=%@&password=%@", escUsername, escPassword] dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    NSURLConnection *urlConnection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+[NSString stringWithContentsOfURL:[NSURL URLWithString:@"https://www.conservationtrack.org/co/home/monitoringreports/barniconservation_monitoringrpt_2014-09-12t11_26_36.xml"] encoding:NSUTF8StringEncoding error:nil];
+}
+-(void) Get_GetList_Items{
+    NSMutableString *soapFormat = [NSMutableString stringWithFormat:@"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\"> \n"
+                                   "<soap:Body>\n"
+                                   "<GetListItems xmlns=\"http://schemas.microsoft.com/sharepoint/soap/\">\n"
+                                   "<listName>Monitoring Reports</listName>\n"
                                    "<viewFields>  <ViewFields><FieldRef Name='Title'/></ViewFields> </viewFields>\n"
                                    "</GetListItems>\n"
                                    "</soap:Body>\n"
                                    "</soap:Envelope>\n"];
+    NSString *url=[NSString stringWithFormat:@"%@",@"https://www.conservationtrack.org/co/home/_vti_bin/lists.asmx"];
+    NSString *soapUrl=[NSString stringWithFormat:@"%@",@"http://schemas.microsoft.com/sharepoint/soap/GetListItems"];
+    [self RequestSoap:soapFormat urlSP:url soapUrl:soapUrl];
+}
+
+-(void) RequestSoap:(NSMutableString *)requestSP   urlSP:(NSString *)urlSP  soapUrl:(NSString *)soapUrl{
+    flagEndConnection=false;
+    resultList =[[NSMutableArray alloc] init];
+    nodeContent = [[NSMutableString alloc]init];
+    
+    NSMutableString *soapFormat =  requestSP;
     
   //  [soapFormat replaceCharactersInRange:[ soapFormat rangeOfString: @"----"] withString:stringImage];
   //  [soapFormat replaceCharactersInRange:[ soapFormat rangeOfString: @"++++"] withString:[image_ accessibilityIdentifier]];
     
     NSLog(@"The request format is %@",soapFormat);
     
-    NSURL *locationOfWebService = [NSURL URLWithString:@"https://share.essentionware.com/_vti_bin/lists.asmx"];
+    NSURL *locationOfWebService = [NSURL URLWithString:urlSP];
     
     NSLog(@"web url = %@",locationOfWebService);
     
@@ -55,7 +95,7 @@
     NSString *msgLength = [NSString stringWithFormat:@"%d",[soapFormat length]];
     
     [theRequest addValue:@"text/xml" forHTTPHeaderField:@"Content-Type"];
-    [theRequest addValue:@"http://schemas.microsoft.com/sharepoint/soap/GetListItems" forHTTPHeaderField:@"SOAPAction"];
+    [theRequest addValue:soapUrl forHTTPHeaderField:@"SOAPAction"];
     [theRequest addValue:msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
     //the below encoding is used to send data over the net
@@ -81,6 +121,8 @@
 -(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
     [webData appendData:data];
+  //  NSString *responseText = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+  //  NSLog(@"%@", responseText);
 }
 -(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
@@ -97,7 +139,10 @@
 
 -(void)connection:(NSURLConnection *)connection didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge
 {
-    NSURLCredential *credential = [NSURLCredential credentialWithUser:@"Kevin" password:@"N1keDym0" persistence:NSURLCredentialPersistenceForSession];
+    NSString *login =[[NSUserDefaults standardUserDefaults]stringForKey:@"username"];
+    NSString *pass =[[NSUserDefaults standardUserDefaults]stringForKey:@"password"];
+    
+    NSURLCredential *credential = [NSURLCredential credentialWithUser:login password:pass persistence:NSURLCredentialPersistenceForSession];//@"Kevin" password:@"N1keDym0"
     [[challenge sender] useCredential:credential forAuthenticationChallenge:challenge];
 }
 

@@ -19,7 +19,10 @@
 @property (nonatomic, readwrite)    NSString *response;
 @property(strong,nonatomic)      NSMutableArray *listArray;
 
--(void)Get_GetList_Items;
+-(void)Get_GetList_Items  ;
+-(void)Get_AttaUrl:(NSInteger *)spidIt;
+-(void) TryLoadFile;
+
 -(NSMutableArray *) CheCkResult;
 -(BOOL)FlagEnd;
 
