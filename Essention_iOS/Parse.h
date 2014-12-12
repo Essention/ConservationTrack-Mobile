@@ -21,6 +21,6 @@
 @property(strong,nonatomic)      NSMutableArray *parselistArray;
 -(id)initParse;
 -(NSMutableArray *)getArrayList;
--(BOOL)GetFlag;
+//-(BOOL)GetFlag;
 
 @end

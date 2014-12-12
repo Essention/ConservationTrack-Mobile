@@ -38,9 +38,14 @@
                                                     selector:@selector(reload)
                                                     userInfo: nil repeats:YES];
     array=[sp CheCkResult];
-    
+    refreshControl =[[UIRefreshControl alloc]init];
+    [refreshControl addTarget:self action:@selector(RefreshDataTable) forControlEvents:UIControlEventValueChanged];
+    [self.tableViewMy addSubview:refreshControl];
 }
 
+-(void)RefreshDataTable {
+    [_tableViewMy reloadData];
+}
 
 - (void)reload {
     if ([sp FlagEnd]) {
@@ -73,7 +78,10 @@
     
     [self performSegueWithIdentifier:@"backTologIdent" sender:self];
 }
-
+- (IBAction)addForm:(id)sender {
+    
+  //  [self performSegueWithIdentifier:@"addFoarm_id" sender:self];
+}
 #pragma mark - UItable view
 
 

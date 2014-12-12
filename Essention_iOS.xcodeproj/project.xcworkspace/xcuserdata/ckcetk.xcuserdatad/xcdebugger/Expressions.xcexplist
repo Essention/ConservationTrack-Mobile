@@ -3,6 +3,34 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "-[SP Save_xml_In_spFormList:]:SP.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[InfoPath tableView:cellForRowAtIndexPath:]:InfoPath.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[ParseXmlFromSP parser:didEndElement:namespaceURI:qualifiedName:]:ParseXmlFromSP.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "correntElementValue">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[ParseXmlFromSP parser:didStartElement:namespaceURI:qualifiedName:attributes:]:ParseXmlFromSP.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[ParseXmlFromSP parser:foundCharacters:]:ParseXmlFromSP.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[InfoPath GetDataFromIpathFormXml]:InfoPath.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "array">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "-[SP connection:didReceiveData:]:SP.m">
          <PersistentStrings>
             <PersistentString
@@ -11,7 +39,15 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "-[modifyXml modXml:]:modifyXml.m">
+      </ContextState>
+      <ContextState
          contextName = "-[InfoPath reload]:InfoPath.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "array">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
    </ContextStates>
 </VariablesViewState>

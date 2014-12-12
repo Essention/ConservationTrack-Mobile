@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "SP.h"
+#import "SPFormList.h"
 #import "List.h"
 #import "InfoPath.h"
 
@@ -23,7 +24,7 @@ UITableViewDelegate>
     NSMutableArray *array;
     SP *sp;
     NSTimer *timer;
-    
+    UIRefreshControl *refreshControl;
 }
 @property (retain, nonatomic) IBOutlet UITableView *tableViewMy;
 @property (weak, nonatomic) IBOutlet UIButton *bCreateNew;

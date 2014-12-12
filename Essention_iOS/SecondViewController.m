@@ -20,8 +20,8 @@
 
 @end
 
-@implementation SecondViewController{
-}
+@implementation SecondViewController
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -123,7 +123,6 @@
     {
         [self Soap_Send_photo];
     }
-
 
 
 -(void) Soap_Send_photo{
