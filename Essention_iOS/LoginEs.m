@@ -25,10 +25,10 @@
     // Do view setup here.
     
 
- //[self registerDefaultsFromSettingsBundle];
+ //[[NSUserDefaults standardUserDefaults]stringForKey:@"sites_preference"];
    
     
-     _username.text=[[NSUserDefaults standardUserDefaults]stringForKey:@"login_preference"];//[defaultsToRegister objectForKey:@"login_preference"];
+    _username.text=[[NSUserDefaults standardUserDefaults]stringForKey:@"login_preference"];//[defaultsToRegister objectForKey:@"login_preference"];
     _password.text=[[NSUserDefaults standardUserDefaults]stringForKey:@"password_preference"];//[defaultsToRegister objectForKey:@"password_preference"];
     //_username.text=
 }

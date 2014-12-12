@@ -41,30 +41,24 @@
 			<string>PSTextFieldSpecifier</string>
 		</dict>
 		<dict>
-			<key>DefaultValue</key>
-			<true/>
-			<key>Key</key>
-			<string>enabled_preference</string>
+			<key>Type</key>
+			<string>PSMultiValueSpecifier</string>
 			<key>Title</key>
-			<string>Enabled</string>
-			<key>Type</key>
-			<string>PSToggleSwitchSpecifier</string>
-		</dict>
-		<dict>
-			<key>DefaultValue</key>
-			<real>0.5</real>
+			<string>Sites</string>
 			<key>Key</key>
-			<string>slider_preference</string>
-			<key>MaximumValue</key>
-			<integer>1</integer>
-			<key>MaximumValueImage</key>
+			<string>sites_preference</string>
+			<key>DefaultValue</key>
 			<string></string>
-			<key>MinimumValue</key>
-			<integer>0</integer>
-			<key>MinimumValueImage</key>
-			<string></string>
-			<key>Type</key>
-			<string>PSSliderSpecifier</string>
+			<key>Titles</key>
+			<array>
+				<string>Colorado</string>
+				<string>California</string>
+			</array>
+			<key>Values</key>
+			<array>
+				<string>https://www.conservationtrack.org/co/</string>
+				<string>https://www.conservationtrack.org/ca/</string>
+			</array>
 		</dict>
 	</array>
 	<key>StringsTable</key>
