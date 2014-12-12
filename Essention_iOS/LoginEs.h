@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface LoginEs : UIViewController
+{
+NSMutableDictionary *defaultsToRegister;
+}
 @property (weak, nonatomic) IBOutlet UITextField *username;
 @property (weak, nonatomic) IBOutlet UITextField *password;
 

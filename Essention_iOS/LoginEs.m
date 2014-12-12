@@ -4,7 +4,9 @@
 //
 //  Created by Oleksii on 10/28/14.
 //  Copyright (c) 2014 Oleksii. All rights reserved.
-//
+//Kevin
+//N1keDym0
+
 
 #import "LoginEs.h"
 //#import "start.h"
@@ -21,6 +23,35 @@
     _bLogin.layer.cornerRadius=10;
     _bLogin.clipsToBounds=YES;
     // Do view setup here.
+    
+
+ //[self registerDefaultsFromSettingsBundle];
+   
+    
+     _username.text=[[NSUserDefaults standardUserDefaults]stringForKey:@"login_preference"];//[defaultsToRegister objectForKey:@"login_preference"];
+    _password.text=[[NSUserDefaults standardUserDefaults]stringForKey:@"password_preference"];//[defaultsToRegister objectForKey:@"password_preference"];
+    //_username.text=
+}
+- (void)registerDefaultsFromSettingsBundle
+{
+    NSString *settingsBundle = [[NSBundle mainBundle] pathForResource:@"Settings" ofType:@"bundle"];
+    if(!settingsBundle) {
+        NSLog(@"Could not find Settings.bundle");
+        return;
+    }
+    
+    NSDictionary *settings = [NSDictionary dictionaryWithContentsOfFile:[settingsBundle stringByAppendingPathComponent:@"Root.plist"]];
+    NSArray *preferences = [settings objectForKey:@"PreferenceSpecifiers"];
+    
+    defaultsToRegister = [[NSMutableDictionary alloc] initWithCapacity:[preferences count]];
+    for(NSDictionary *prefSpecification in preferences) {
+        NSString *key = [prefSpecification objectForKey:@"Key"];
+        if(key) {
+            [defaultsToRegister setObject:[prefSpecification objectForKey:@"DefaultValue"] forKey:key];
+        }
+    }
+    
+    [[NSUserDefaults standardUserDefaults] registerDefaults:defaultsToRegister];
 }
 
 - (IBAction)bLogin:(id)sender {
@@ -33,7 +64,7 @@
     }
 }
 
--(void) LoginUser{
+-(void) LoginUser{	
    NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
     [defaults setObject:_username.text forKey:@"username"];
     [defaults setObject:_password.text forKey:@"password"];

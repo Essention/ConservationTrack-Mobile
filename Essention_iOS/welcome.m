@@ -44,8 +44,21 @@
 }
 
 -(void)RefreshDataTable {
+    self.tableViewMy.hidden=true;
+    _bCreateNew.clipsToBounds=YES;
+    
+    array=[[NSMutableArray alloc] init];
+    sp=[[SP alloc]init];
+    [sp Get_GetList_Items];
+    timer= [NSTimer scheduledTimerWithTimeInterval: 2.0
+                                            target: self
+                                          selector:@selector(reload)
+                                          userInfo: nil repeats:YES];
+    array=[sp CheCkResult];
+    
     [_tableViewMy reloadData];
-}
+    [refreshControl endRefreshing];
+    }
 
 - (void)reload {
     if ([sp FlagEnd]) {

@@ -19,6 +19,7 @@
 		6C687AE41A07CE9C008F4084 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C687AE31A07CE9C008F4084 /* 1.png */; };
 		6C6B17BF19E6DDD700051EEA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C6B17BE19E6DDD700051EEA /* UIKit.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		6C6B17C119E6DE1900051EEA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C6B17C019E6DE1900051EEA /* CoreGraphics.framework */; };
+		6CA4EDF11A3B2F8B00BFC6D7 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6CA4EDF01A3B2F8B00BFC6D7 /* Settings.bundle */; };
 		6CCEEAF01A07B11700BD9CFC /* ABD8747F.png in Resources */ = {isa = PBXBuildFile; fileRef = 6CCEEAEF1A07B11700BD9CFC /* ABD8747F.png */; };
 		6CD8509319E5BD060081CBD9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CD8509219E5BD060081CBD9 /* main.m */; };
 		6CD8509619E5BD060081CBD9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CD8509519E5BD060081CBD9 /* AppDelegate.m */; };
@@ -71,6 +72,7 @@
 		6C687AE31A07CE9C008F4084 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
 		6C6B17BE19E6DDD700051EEA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6C6B17C019E6DE1900051EEA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		6CA4EDF01A3B2F8B00BFC6D7 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		6CCEEAEF1A07B11700BD9CFC /* ABD8747F.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ABD8747F.png; path = ../../../Downloads/ABD8747F.png; sourceTree = "<group>"; };
 		6CD8508D19E5BD060081CBD9 /* Essention_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Essention_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CD8509119E5BD060081CBD9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 		6CD8508419E5BD060081CBD9 = {
 			isa = PBXGroup;
 			children = (
+				6CA4EDF01A3B2F8B00BFC6D7 /* Settings.bundle */,
 				6CD8508F19E5BD060081CBD9 /* Essention_iOS */,
 				6C6B17BD19E6DD9000051EEA /* Frameworks */,
 				6CD850AC19E5BD060081CBD9 /* Essention_iOSTests */,
@@ -397,6 +400,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6CA4EDF11A3B2F8B00BFC6D7 /* Settings.bundle in Resources */,
 				6CD8509F19E5BD060081CBD9 /* Main.storyboard in Resources */,
 				6CD850A419E5BD060081CBD9 /* LaunchScreen.xib in Resources */,
 				6CCEEAF01A07B11700BD9CFC /* ABD8747F.png in Resources */,
